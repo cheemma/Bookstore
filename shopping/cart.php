@@ -41,7 +41,8 @@ $allProducts = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <td><?php echo $product->pro_name; ?></td>
                     <td class="pro_price"><?php echo $product->pro_price; ?></td>
                     <td><input id="form1" min="1" name="quantity" value="<?php echo $product->pro_amount; ?>" type="number" class="form-control form-control-sm" /></td>
-                    <td class="total_price"></td>
+                    <td class="total_price"><?php echo  $product->pro_amount * $product->pro_price; ?></td>
+
                     <td><button class="btn btn-warning text-white"><i class="fas fa-pen"></i></button></td>
                     <td><button class="btn btn-danger text-white"><i class="fas fa-trash-alt"></i></button></td>
                   </tr>
@@ -92,52 +93,52 @@ $allProducts = $stmt->fetchAll(PDO::FETCH_OBJ);
                       $el.find(".total_price").html("");        
 
                       $el.find(".total_price").append(total+'$');
-    /*
-                      $(".btn-update").on('click', function(e) {
+    
+          //             $(".btn-update").on('click', function(e) {
 
-                          var id = $(this).val();
+          //                 var id = $(this).val();
                         
 
-                          $.ajax({
-                            type: "POST",
-                            url: "update-item.php",
-                            data: {
-                              update: "update",
-                              id: id,
-                              product_amount: pro_amount
-                            },
+          //                 $.ajax({
+          //                   type: "POST",
+          //                   url: "update-item.php",
+          //                   data: {
+          //                     update: "update",
+          //                     id: id,
+          //                     product_amount: pro_amount
+          //                   },
 
-                            success: function() {
-                            // alert("done");
-                              reload();
-                            }
-                          })*/
-                        });
+          //                   success: function() {
+          //                    alert("done");
+          //                     reload();
+          //                   }
+          //                 })*/
+          //               });
                     
                     
-/*              fetch();     
-          });
+          //       fetch();     
+           });
 
-          fetch();
+          // fetch();
 
-          function fetch() {
+          // function fetch() {
 
-            setInterval(function () {
-                      var sum = 0.0;
-                      $('.total_price').each(function()
-                      {
-                          sum += parseFloat($(this).text());
-                      });
-                      $(".full_price").html(sum+"$");
-            }, 4000);
-          } 
+          //   setInterval(function () {
+          //             var sum = 0.0;
+          //             $('.total_price').each(function()
+          //             {
+          //                 sum += parseFloat($(this).text());
+          //             });
+          //             $(".full_price").html(sum+"$");
+          //   }, 4000);
+          // } 
           
-          function reload() {
+          // function reload() {
 
           
-                $("body").load("cart.php")
+          //       $("body").load("cart.php")
           
-          }
-                */
+          // }
+                
     });                          
 </script>
