@@ -60,7 +60,7 @@ $allProducts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
               <div class="d-flex justify-content-between mb-5">
                 <h5 class="text-uppercase">Total price</h5>
-                <h5>€ 137.00</h5>
+                <h5 class="full_price"></h5>
               </div>
 
               <button type="button" class="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Checkout</button>
@@ -116,29 +116,29 @@ $allProducts = $stmt->fetchAll(PDO::FETCH_OBJ);
           //               });
                     
                     
-          //       fetch();     
+                 fetch();     
            });
 
-          // fetch();
+           fetch();
 
-          // function fetch() {
+           function fetch() {
 
-          //   setInterval(function () {
-          //             var sum = 0.0;
-          //             $('.total_price').each(function()
-          //             {
-          //                 sum += parseFloat($(this).text());
-          //             });
-          //             $(".full_price").html(sum+"$");
-          //   }, 4000);
-          // } 
+             setInterval(function () {
+                       var sum = 0.0;
+                       $('.total_price').each(function()
+                       {
+                           sum += parseFloat($(this).text());
+                       });
+                      $(".full_price").html(sum+"$");
+              }, 4000);
+            } 
           
-          // function reload() {
+           //function reload() {
 
           
-          //       $("body").load("cart.php")
+                // $("body").load("cart.php")
           
-          // }
+           //}
                 
     });                          
 </script>
