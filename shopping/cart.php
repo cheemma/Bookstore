@@ -1,4 +1,4 @@
-<?php require "../includes/header.php"; ?>
+c<?php require "../includes/header.php"; ?>
 <?php require "../config/config.php"; ?>
 
 <?php
@@ -40,7 +40,8 @@ $allProducts = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <td><img width="100" height="100" src="../images/<?php echo $product->pro_image; ?>" class="img-fluid rounded-3" alt="Cotton T-shirt"></td>
                     <td><?php echo $product->pro_name; ?></td>
                     <td class="pro_price"><?php echo $product->pro_price; ?></td>
-                    <td><input id="form1" min="1" name="quantity" value="<?php echo $product->pro_amount; ?>" type="number" class="form-control form-control-sm" /></td>
+                    <td><input id="form1" min="1" name="quantity" value="<?php echo $product->pro_amount; ?>" type="number" 
+                    class="form-control form-control-sm pro_amount" /></td>
                     <td class="total_price"><?php echo  $product->pro_amount * $product->pro_price; ?></td>
 
                     <td><button class="btn btn-warning text-white"><i class="fas fa-pen"></i></button></td>
