@@ -1,4 +1,4 @@
-c<?php require "../includes/header.php"; ?>
+<?php require "../includes/header.php"; ?>
 <?php require "../config/config.php"; ?>
 
 <?php
@@ -45,7 +45,7 @@ $allProducts = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <td class="total_price"><?php echo  $product->pro_amount * $product->pro_price; ?></td>
 
                     <td><button class="btn btn-warning text-white"><i class="fas fa-pen"></i></button></td>
-                    <td><button class="btn btn-danger text-white"><i class="fas fa-trash-alt"></i></button></td>
+                    <td><button class="btn btn-danger text-white bnt-delete"><i class="fas fa-trash-alt"></i></button></td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
@@ -95,23 +95,23 @@ $allProducts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
                       $el.find(".total_price").append(total+'$');
     
-                       $(".btn-update").on('click', function(e) {
+                       $(".btn-delete").on('click', function(e) {
 
                            var id = $(this).val();
                         
 
                            $.ajax({
                              type: "POST",
-                             url: "update-item.php",
+                             url: "delete-item.php",
                              data: {
-                               update: "update",
-                               id: id,
-                               product_amount: pro_amount
+                              delete: "delete",
+                               id: id
+                               
                              },
 
                              success: function() {
-                              alert("done");
-                               reload();
+                                alert("product deleted succesfully");
+                                reload();
                              }
                            })
                          });
@@ -120,9 +120,13 @@ $allProducts = $stmt->fetchAll(PDO::FETCH_OBJ);
                  fetch();     
            });
 
+
+
+
            fetch();
 
            function fetch() {
+
 
              setInterval(function () {
                        var sum = 0.0;
@@ -134,12 +138,12 @@ $allProducts = $stmt->fetchAll(PDO::FETCH_OBJ);
               }, 4000);
             } 
           
-           //function reload() {
+           function reload() {
 
           
-                // $("body").load("cart.php")
+             $("body").load("cart.php")
           
-           //}
+           }
                 
     });                          
 </script>
