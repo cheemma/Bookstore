@@ -44,8 +44,9 @@ $allProducts = $stmt->fetchAll(PDO::FETCH_OBJ);
                     class="form-control form-control-sm pro_amount" /></td>
                     <td class="total_price"><?php echo  $product->pro_amount * $product->pro_price; ?></td>
 
-                    <td><button class="btn btn-warning text-white"><i class="fas fa-pen"></i></button></td>
-                    <td><button class="btn btn-danger text-white bnt-delete"><i class="fas fa-trash-alt"></i></button></td>
+                    <td><button value="<?php echo $product->id; ?>" class="btn btn-warning text-white"><i class="fas fa-pen"></i></button></td>
+                    
+                    <td><button value="<?php echo $product->id; ?>" class="btn btn-danger text-white bnt-delete"><i class="fas fa-trash-alt"></i></button></td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
@@ -98,22 +99,24 @@ $allProducts = $stmt->fetchAll(PDO::FETCH_OBJ);
                        $(".btn-delete").on('click', function(e) {
 
                            var id = $(this).val();
-                        
+      });                    
+      $(".bnt-delete").on('click', function(e) {
 
-                           $.ajax({
-                             type: "POST",
-                             url: "delete-item.php",
-                             data: {
-                              delete: "delete",
-                               id: id
-                               
-                             },
+               var id = $(this).val();
 
-                             success: function() {
-                                alert("product deleted succesfully");
-                                reload();
-                             }
-                           })
+                $.ajax({
+                  type: "POST",
+                  url: "delete-item.php",
+                  data: {
+                  delete: "delete",
+                    id: id
+                    
+                  },
+
+                  success: function() {
+                    alert("product deleted succesfully");
+                    reload();
+                  }
                          });
                     
                     

@@ -15,4 +15,4 @@
 
 ?>
 
-<?php require "../includes/footer.php"; ?>
+<?php require "../include/footer.php"; ?>
